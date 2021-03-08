@@ -20,6 +20,7 @@ public class GameManagerScript : MonoBehaviour
 
 	void Awake()
 	{
+		Debug.Log("in gamemanager");
 		MakeInstance();
 		CreateInitialPlatforms();
 	}

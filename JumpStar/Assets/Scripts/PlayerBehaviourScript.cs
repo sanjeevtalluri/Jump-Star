@@ -69,7 +69,25 @@ public class PlayerBehaviourScript : MonoBehaviour
                 {
                     GameManagerScript.instance.CreateNewPlatformAndLerp(other.transform.position.x);
                 }
+                if (ScoreManagerScript.instance != null)
+                {
+                    ScoreManagerScript.instance.IncrementScore();
+                }
+            }     
+        }
+        if (other.tag == "Dead")
+        {
+            Debug.Log("in dead state");
+            if (GameOverManager.instance != null)
+            {
+                Debug.Log("1");
+                GameOverManager.instance.GameOverShowPanel();
             }
+            else
+            {
+                Debug.Log("0");
+            }
+            Destroy(gameObject);
         }
 
     }
