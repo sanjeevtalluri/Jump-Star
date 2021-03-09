@@ -69,6 +69,7 @@ public class PlayerBehaviourScript : MonoBehaviour
     private void Jump()
     {
         myBody.velocity = new Vector2(forceX, forceY);
+        SoundManagerScript.instance.PlaySound("jump");
         forceX = forceY = 0f;
         didJump = true;
         playerAnim.SetBool("jump", didJump);
@@ -98,6 +99,7 @@ public class PlayerBehaviourScript : MonoBehaviour
         if (other.tag == "Dead")
         {
             Debug.Log("in dead state");
+            SoundManagerScript.instance.PlaySound("death");
             if (GameOverManager.instance != null)
             {
                 Debug.Log("1");
