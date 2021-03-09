@@ -32,6 +32,18 @@ public class GameOverManager : MonoBehaviour
 		inGameScore.SetActive(false);
 		gameOverPanel.SetActive(true);
 		finalScore.text = "Score\n" + ScoreManagerScript.instance.getScore();
+        if (!PlayerPrefs.HasKey("highScore"))
+        {
+			PlayerPrefs.SetInt("highScore", ScoreManagerScript.instance.getScore());
+		}
+        else
+        {
+            if (ScoreManagerScript.instance.getScore() > PlayerPrefs.GetInt("highScore"))
+            {
+				PlayerPrefs.SetInt("highScore", ScoreManagerScript.instance.getScore());
+			}
+        }
+		
 
 	}
 
